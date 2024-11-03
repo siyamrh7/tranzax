@@ -15,6 +15,7 @@ import { View } from "react-native"
 import Navbar from "../components/Header/Navbar"
 import { AppProvider } from "../store/store"
 import Menu from "./(auth)/humber"
+import { CustomTheme } from "../theme/theme"
 
 SplashScreen.preventAutoHideAsync()
 
@@ -43,38 +44,43 @@ export default function RootLayout() {
     }
     return (
         <AppProvider>
-            <View className="flex-1">
-                <SafeAreaView className="flex-1">
-                    <StatusBar style="light" backgroundColor="#010101" />
-
-                    {pathname !== "/welcome" && pathname !== "/onboard" && (
-                        <View>
-                            <Navbar setIsShowMenu={setIsShowMenu} />
+            <ThemeProvider value={CustomTheme}>
+                <View className="flex-1">
+                    <SafeAreaView className="flex-1">
+                        <StatusBar style="light" backgroundColor="#010101" />
+                        {pathname !== "/welcome" && pathname !== "/onboard" && (
                             <View>
-                                {isShowMenu && (
-                                    <Menu setIsShowMenu={setIsShowMenu} />
-                                )}
+                                <Navbar setIsShowMenu={setIsShowMenu} />
+                                <View>
+                                    {isShowMenu && (
+                                        <Menu setIsShowMenu={setIsShowMenu} />
+                                    )}
+                                </View>
                             </View>
-                        </View>
-                    )}
+                        )}
 
-                    <Stack>
-                        <Stack.Screen
-                            name="index"
-                            options={{ headerShown: false }}
-                        />
-                        <Stack.Screen
-                            name="(root)"
-                            options={{ headerShown: false }}
-                        />
-                        <Stack.Screen
-                            name="(auth)"
-                            options={{ headerShown: false }}
-                        />
-                        <Stack.Screen name="+not-found" />
-                    </Stack>
-                </SafeAreaView>
-            </View>
+                        <Stack>
+                            <Stack.Screen
+                                name="index"
+                                options={{ headerShown: false }}
+                            />
+                            <Stack.Screen
+                                name="(root)"
+                                options={{ headerShown: false }}
+                            />
+                            <Stack.Screen
+                                name="(auth)"
+                                options={{ headerShown: false }}
+                            />
+                            <Stack.Screen
+                                name="(add)"
+                                options={{ headerShown: false }}
+                            />
+                            <Stack.Screen name="+not-found" />
+                        </Stack>
+                    </SafeAreaView>
+                </View>
+            </ThemeProvider>
         </AppProvider>
     )
 }

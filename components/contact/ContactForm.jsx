@@ -35,7 +35,7 @@ const ContactForm = () => {
             ))}
             <View className="mt-4 flex-row items-center justify-center">
                 <BtnWithArrow
-                    title={"Send Message"}
+                    title={"Send message"}
                     px={"px-[100px]"}
                     py={"py-[10px]"}
                 />

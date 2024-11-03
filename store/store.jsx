@@ -9,6 +9,8 @@ export function AppProvider({ children }) {
     const [allCategories, setAllCategories] = useState([])
     const [posts, setPosts] = useState([])
     const [allPosts, setAllPosts] = useState([])
+    const [packageLists, setPackageLists] = useState([])
+    const [error, setError] = useState([])
     const getAllCategories = async () => {
         try {
             const res = await axios.get(
@@ -22,6 +24,21 @@ export function AppProvider({ children }) {
         } catch (err) {
             console.error("Failed to fetch all categories:", err)
             setError("Could not load all categories.")
+        }
+    }
+    const packagesLits = async () => {
+        try {
+            const res = await axios.get(
+                `${process.env.EXPO_PUBLIC_BASE_URL}/api/packages?embed=currency`
+            )
+            if (res.status === 200) {
+                setPackageLists(res.data.result.data)
+            } else {
+                setError(`Error: Received status ${res.status}`)
+            }
+        } catch (err) {
+            console.error("Failed to fetch package lists:", err)
+            setError("Could not load package lists.")
         }
     }
     const getCategories = async () => {
@@ -69,17 +86,16 @@ export function AppProvider({ children }) {
             setError("Could not load all posts details.")
         }
     }
-    // console.log(allPosts, "all")
     useEffect(() => {
         const getAllData = async () => {
             await getAllPostsDetails()
             await getCategories()
             await getPosts()
             await getAllCategories()
+            await packagesLits()
         }
         getAllData()
     }, [])
-
     return (
         <AppContext.Provider
             value={{
@@ -89,6 +105,7 @@ export function AppProvider({ children }) {
                 posts,
                 allCategories,
                 allPosts,
+                packageLists,
             }}
         >
             {children}

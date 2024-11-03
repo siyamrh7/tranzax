@@ -19,6 +19,7 @@ module.exports = {
             boxShadow: {
                 custom: "0px 0px 40px 0px rgba(0, 0, 0, 0.05)",
                 loginShadow: "0 0 30px rgba(0, 0, 0, 0.10)",
+                "custom-white": "0px 0px 20px 0px rgba(0, 0, 0, 0.10)",
                 "custom-blue": "0px 4px 10px 0px #1AB4F0",
             },
         },

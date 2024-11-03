@@ -9,7 +9,7 @@ import StayTouch from "../../components/contact/StayTouc"
 export default function Contact() {
     return (
         <ScrollView>
-            <View className="mt-[60px]">
+            <View className="">
                 <View className="mb-[30px] flex-row items-center justify-center">
                     <BoostBrand />
                 </View>
@@ -34,7 +34,11 @@ export default function Contact() {
                     </Text>
                 </View>
                 <View className="flex-row items-center justify-center mt-[30px]">
-                    <BtnWithArrow title={"Contact us now"} handler={() => {}} />
+                    <BtnWithArrow
+                        title={"Contact us now"}
+                        txtClass={"uppercase"}
+                        handler={() => {}}
+                    />
                 </View>
             </View>
             <View className="px-6 mt-[50px]">
