@@ -13,6 +13,7 @@ import Btn from "../../components/shared/Btn"
 import ForgetPassword from "../../components/ForgetPassword"
 import { router } from "expo-router"
 import axios from "axios"
+import * as SecureStore from "expo-secure-store";
 
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true)
@@ -36,6 +37,13 @@ const Login = () => {
         return true
     }
 
+
+    const saveToken = async (token) => {
+        await SecureStore.setItemAsync("userToken", token);
+        // Alert.alert("Success", "Login successful!")
+        router.replace("(root)/home")
+    };
+
     const handleLogin = async () => {
         if (!validateForm()) return
         try {
@@ -46,10 +54,9 @@ const Login = () => {
                     password: formData.password,
                 }
             )
-
             if (response.status === 200) {
-                Alert.alert("Success", "Login successful!")
-                router.replace("(root)/home")
+                saveToken(response.data.extra.authToken)
+               
             }
         } catch (error) {
             console.error("Login error:", error)

@@ -18,10 +18,10 @@ const CardHolderInformationSection = () => {
                     <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
                         First Name *
                     </Text>
-                    <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
+                    <View className="px-[10px] py-[10px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
                         <TextInput
                             placeholder="Card Holder's First Name"
-                            className="placeholder:text-[#999] font-poppins text-[12px]"
+                            className="placeholder:text-[#999] font-poppins text-[16px]"
                         />
                     </View>
                 </View>

@@ -48,7 +48,7 @@ export default function RootLayout() {
                 <View className="flex-1 bg-black">
                     <SafeAreaView className="flex-1">
                         <StatusBar style="light" backgroundColor="#010101" />
-                        {pathname !== "/welcome" && pathname !== "/onboard" && (
+                        {pathname !== "/welcome" && pathname !== "/onboard" && pathname !== "/login" && pathname !== "/register"&& (
                             <View>
                                 <Navbar setIsShowMenu={setIsShowMenu} />
                                 <View>
