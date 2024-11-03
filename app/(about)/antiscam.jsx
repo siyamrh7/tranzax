@@ -1,6 +1,8 @@
 import { View, Text, ScrollView } from "react-native"
 import AboutHero from "../../components/shared/about/AboutHero"
 import { Entypo } from "@expo/vector-icons"
+import { useEffect } from "react"
+import Toast, { BaseToast } from "react-native-toast-message"
 const antiscamDetails = [
     {
         header: "OUR ADVICES",
@@ -57,9 +59,32 @@ const antiscamDetails = [
 ]
 
 const antiscam = () => {
+    useEffect(() => {
+        Toast.show({
+            type: "success", // You can use 'success', 'error', or 'info'
+            text1: "Hello!",
+            text2: "This is a toast message 👋",
+        })
+    }, [])
     return (
         <ScrollView className="p-4">
             <View className=" mb-20">
+                <Toast
+                    config={{
+                        success: (props) => (
+                            <BaseToast
+                                {...props}
+                                style={{
+                                    borderLeftColor: "black",
+                                    backgroundColor: "black",
+                                }}
+                                text1Style={{ color: "white" }}
+                                text2Style={{ color: "white" }}
+                            />
+                        ),
+                    }}
+                />
+
                 <View className="mt-[50px] px-4 ">
                     <AboutHero
                         firstText={"ANTI-SCAM"}

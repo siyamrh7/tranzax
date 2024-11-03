@@ -16,8 +16,6 @@ import Navbar from "../components/Header/Navbar"
 import { AppProvider } from "../store/store"
 import Menu from "./(auth)/humber"
 import { CustomTheme } from "../theme/theme"
-import Toast from "react-native-toast-message"
-import toastConfig from "../constant/toastConfig"
 
 SplashScreen.preventAutoHideAsync()
 
@@ -47,8 +45,7 @@ export default function RootLayout() {
     return (
         <AppProvider>
             <ThemeProvider value={CustomTheme}>
-                <Toast />
-                <View className="flex-1">
+                <View className="flex-1 bg-black">
                     <SafeAreaView className="flex-1">
                         <StatusBar style="light" backgroundColor="#010101" />
                         {pathname !== "/welcome" && pathname !== "/onboard" && (
