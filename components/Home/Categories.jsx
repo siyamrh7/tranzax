@@ -4,6 +4,22 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { router } from "expo-router"
 
+const subCategories = [
+    { name: "HOUSES & APARTMENTS FOR RENT" },
+    {
+        name: "LAND & PLOTS FOR RENT",
+    },
+    {
+        name: "COMMERCIAL PROPERTY FOR RENT",
+    },
+    {
+        name: "COMMERCIAL PROPERTY FOR SALE",
+    },
+    {
+        name: "EVENT CENTRES, VENUES AND WORKSTATIONS",
+    },
+]
+
 const Categories = ({ categories }) => {
     return (
         <View className="flex-col gap-5">

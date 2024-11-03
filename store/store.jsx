@@ -11,6 +11,7 @@ export function AppProvider({ children }) {
     const [allPosts, setAllPosts] = useState([])
     const [packageLists, setPackageLists] = useState([])
     const [error, setError] = useState([])
+    const [cityLists, setCityLists] = useState([])
     const getAllCategories = async () => {
         try {
             const res = await axios.get(
@@ -86,6 +87,21 @@ export function AppProvider({ children }) {
             setError("Could not load all posts details.")
         }
     }
+    const getCityLists = async () => {
+        try {
+            const res = await axios.get(
+                `${process.env.EXPO_PUBLIC_BASE_URL}/api/countries/US/cities?embed=laudantium`
+            )
+            if (res.status === 200) {
+                setCityLists(res.data.result.data)
+            } else {
+                setError(`Error: Received status ${res.status}`)
+            }
+        } catch (err) {
+            console.error("Failed to fetch city lists:", err)
+            setError("Could not load city lists.")
+        }
+    }
     useEffect(() => {
         const getAllData = async () => {
             await getAllPostsDetails()
@@ -93,6 +109,7 @@ export function AppProvider({ children }) {
             await getPosts()
             await getAllCategories()
             await packagesLits()
+            await getCityLists()
         }
         getAllData()
     }, [])
@@ -106,6 +123,7 @@ export function AppProvider({ children }) {
                 allCategories,
                 allPosts,
                 packageLists,
+                cityLists,
             }}
         >
             {children}

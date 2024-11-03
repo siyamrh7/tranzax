@@ -23,18 +23,18 @@ const Advertise = () => {
                 <View className="mt-[26px] px-4">
                     <View
                         style={styles.shadowBox}
-                        className="p-6 rounded-[12px]"
+                        className="px-[30px] py-10 rounded-[12px]"
                     >
                         <View className="flex-row items-center justify-between">
-                            <Text className="text-[20px] font-poppins font-semibold text-primary">
+                            <Text className="text-[20px] font-poppins font-semibold text-primary uppercase">
                                 Advertise
                             </Text>
                             <View className="w-[1px] h-5 bg-[#BFBFBF]"></View>
-                            <Text className="text-[20px] font-poppins font-semibold text-primaryBlk">
+                            <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
                                 Package
                             </Text>
                             <View className="w-[1px] h-5 bg-[#BFBFBF]"></View>
-                            <Text className="text-[20px] font-poppins font-semibold text-primaryBlk">
+                            <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
                                 Payments
                             </Text>
                         </View>

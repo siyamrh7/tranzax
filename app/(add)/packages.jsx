@@ -10,24 +10,25 @@ import { AntDesign } from "@expo/vector-icons"
 export default function Packages() {
     const { packageLists } = useContext(AppContext)
     const [selectCategory, setSelectCategory] = useState(null)
+
     return (
         <ScrollView className="px-4">
             <AdsHeroSection />
             <View
-                className="mt-[25px] px-[24px] py-10"
+                className="mt-[25px] px-[24px] py-10 rounded-[12px]"
                 style={styles.shadowBox}
             >
-                <View className="flex-row items-center justify-between">
+                <View className="flex-row items-center justify-between uppercase">
                     <Text className="text-[20px] font-poppins font-semibold text-primaryBlk">
                         ADVERTISE
                     </Text>
 
                     <View className="w-[1px] h-5 bg-[#BFBFBF]"></View>
-                    <Text className="text-[20px] font-poppins font-semibold text-primary">
+                    <Text className="text-[20px] font-poppins font-semibold text-primary uppercase">
                         PACKAGES
                     </Text>
                     <View className="w-[1px] h-5 bg-[#BFBFBF]"></View>
-                    <Text className="text-[20px] font-poppins font-semibold text-primaryBlk">
+                    <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
                         Payments
                     </Text>
                 </View>
@@ -86,27 +87,6 @@ export default function Packages() {
         </ScrollView>
     )
 }
-
-/* 
-
-   <View className="mt-3 flex-row items-center">
-                            <TouchableOpacity
-                                onPress={() =>
-                                    setHidePhoneNumber(!hidePhoneNumber)
-                                }
-                                className="w-[18px] h-[18px] border-[1px] border-primary mr-2 items-center justify-center"
-                            >
-                                {hidePhoneNumber && (
-                                    <View className="w-3 h-3 bg-[#000]" />
-                                )}
-                            </TouchableOpacity>
-                            <Text className="text-[#010101] mt-[5px] font-poppins text-[12px] uppercase">
-                                HIDE
-                            </Text>
-                        </View>
-
-
-*/
 
 const styles = {
     shadowBox: {

@@ -492,3 +492,55 @@ export const countriesDetails = [
         name: "U.A.E",
     },
 ]
+
+export const adsCardHolderInfo = [
+    {
+        label: "First Name *",
+        placeholder: "Card Holder's First Name",
+        key: "firstName",
+    },
+    {
+        label: "Last Name *",
+        placeholder: "Card Holder's Last Name",
+        key: "lastName",
+    },
+    {
+        label: "Address *",
+        placeholder: "Card Holder's Address",
+        key: "address",
+    },
+    { label: "City *", placeholder: "Card Holder's City", key: "city" },
+    {
+        label: "State/Province *",
+        placeholder: "Card Holder's State/Province",
+        key: "stateProvince",
+    },
+    {
+        label: "Postal Code *",
+        placeholder: "Card Holder's Postal Code",
+        key: "postalCode",
+    },
+    { label: "Country *", placeholder: "Country", key: "country" }, // Assuming this will be a dropdown
+]
+export const adsCardInformation = [
+    {
+        label: "Card Number *",
+        placeholder: "CARD NUMBER",
+        name: "cardNumber",
+    },
+    {
+        label: "Card Expiration Month *",
+        placeholder: "MM",
+        name: "expirationMonth",
+    },
+    {
+        label: "Card Expiration Year *",
+        placeholder: "YY",
+        name: "expirationYear",
+    },
+    {
+        label: "Card CVV *",
+        placeholder: "CVV",
+        name: "cvv",
+    },
+]
