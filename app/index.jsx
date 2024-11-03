@@ -1,7 +1,7 @@
 import { Redirect } from "expo-router"
 
 const index = () => {
-    return <Redirect href={"(root)/categories"} />
+    return <Redirect href={"(about)/antiscam"} />
 }
 
 export default index

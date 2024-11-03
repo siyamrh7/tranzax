@@ -7,6 +7,7 @@ import * as ImagePicker from "expo-image-picker"
 import { TouchableOpacity } from "react-native"
 import { AntDesign, Ionicons } from "@expo/vector-icons"
 import AdsHeroSection from "../../components/addAdvertise/AdsHeroSection"
+import { router } from "expo-router"
 
 const Advertise = () => {
     const [thumbnail, setThumbnail] = useState(null)
@@ -273,6 +274,7 @@ const Advertise = () => {
                     </View>
                     <TouchableOpacity
                         className={`bg-[#00ADEF] mt-5 rounded-[12px] justify-center py-[10px] flex-row items-center gap-1 `}
+                        onPress={() => router.push("(add)/packages")}
                     >
                         <Text
                             className={`font-poppins text-[16px] text-white font-semibold text-center uppercase`}

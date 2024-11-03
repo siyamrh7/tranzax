@@ -28,7 +28,7 @@ const categories = () => {
                     LIST OF CATEGORIES AND SUB-CATEGORIES
                 </Text>
                 <View
-                    className="border-[1px] p-4 flex gap-5 rounded-[8px]"
+                    className="border-[1px] p-4 flex gap-5 rounded-[8px] mt-10"
                     style={{
                         borderColor: "rgba(0, 0, 0, 0.2)",
                         borderRightWidth: 1,

@@ -79,6 +79,10 @@ export default function RootLayout() {
                                 name="(add)"
                                 options={{ headerShown: false }}
                             />
+                            <Stack.Screen
+                                name="(about)"
+                                options={{ headerShown: false }}
+                            />
                             <Stack.Screen name="+not-found" />
                         </Stack>
                     </SafeAreaView>

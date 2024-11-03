@@ -219,18 +219,21 @@ export const screens = [
 export const aboutUsData = [
     {
         page: "Anti-Scam",
+        link: "(about)/antiscam",
     },
     {
         page: "Terms",
+        link: "(about)/terms",
     },
     {
         page: "Privacy",
+        link: "(about)/privacy",
     },
 ]
 export const contact = [
     {
         page: "Categories",
-        link: "/categories",
+        link: "(root)/categories",
     },
     {
         page: "Countries",

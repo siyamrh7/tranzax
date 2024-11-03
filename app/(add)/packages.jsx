@@ -6,6 +6,7 @@ import CustomHr from "../../components/shared/CustomHr"
 import { pricingCategories } from "../../constant/data"
 import { TouchableOpacity } from "react-native"
 import { AntDesign } from "@expo/vector-icons"
+import { router } from "expo-router"
 
 export default function Packages() {
     const { packageLists } = useContext(AppContext)
@@ -74,6 +75,7 @@ export default function Packages() {
                     ))}
                     <TouchableOpacity
                         className={`bg-[#00ADEF] mt-5 rounded-[12px] justify-center py-[10px] flex-row items-center gap-1 `}
+                        onPress={() => router.push("(add)/payment")}
                     >
                         <Text
                             className={`font-poppins text-[16px] text-white font-semibold text-center uppercase`}
