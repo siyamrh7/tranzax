@@ -14,11 +14,11 @@ export default function Home() {
     const [error, setError] = useState([])
     const { categories } = useContext(AppContext)
 
+    const [showCategories, setShowCategories] = useState(false)
+    
     if (categories.length <= 0) {
         return null
     }
-    const [showCategories, setShowCategories] = useState(false)
-
     return (
         <ScrollView>
             <View>

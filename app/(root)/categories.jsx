@@ -3,6 +3,8 @@ import { View, Text, ScrollView, StyleSheet } from "react-native"
 import { AppContext } from "../../store/store"
 import { Image } from "react-native"
 import { Entypo } from "@expo/vector-icons"
+import { TouchableOpacity } from "react-native"
+import { router } from "expo-router"
 
 const subCategories = [
     {
@@ -36,9 +38,18 @@ const categories = () => {
                 >
                     {allCategories.map((category) => (
                         <View key={category.id} className="py-4">
-                            <View
+                            <TouchableOpacity
                                 className="flex items-center gap-5 rounded-[12px] py-[26px] px-3 justify-center"
                                 style={styles.shadowBox}
+                                onPress={() =>
+                                    router.push({
+                                        pathname: `(root)/ads`,
+                                        params: {
+                                            category: category.name,
+                                            categoryId: category.id,
+                                        },
+                                    })
+                                }
                             >
                                 <Image
                                     source={{
@@ -49,7 +60,7 @@ const categories = () => {
                                 <Text className="text-[18px] font-poppins text-primaryBlk font-bold">
                                     {category.name}
                                 </Text>
-                            </View>
+                            </TouchableOpacity>
                             <View className="flex gap-[10px] mt-6">
                                 {category?.children?.map((subCat, index) => (
                                     <View

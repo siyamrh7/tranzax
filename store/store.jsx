@@ -1,5 +1,5 @@
 import axios from "axios"
-import { createContext, useEffect, useState } from "react"
+import { createContext, useEffect, useState,useLayoutEffect } from "react"
 
 export const AppContext = createContext()
 
@@ -16,7 +16,7 @@ export function AppProvider({ children }) {
     const getAllCategories = async () => {
         try {
             const res = await axios.get(
-                `${process.env.EXPO_PUBLIC_BASE_URL}/api/categories?parentId=0&embed=iure,children`
+                `${process.env.EXPO_PUBLIC_BASE_URL}/api/categories?embed=children`
             )
             if (res.status === 200) {
                 setAllCategories(res.data.result.data)
@@ -119,7 +119,7 @@ export function AppProvider({ children }) {
             setError("Could not load city lists.")
         }
     }
-    useEffect(() => {
+    useLayoutEffect(() => {
         const getAllData = async () => {
             await getAllPostsDetails()
             await getCategories()

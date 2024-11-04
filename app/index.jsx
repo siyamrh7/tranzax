@@ -16,7 +16,6 @@ const index = () => {
     const [state, setState] = useState(null)
     useLayoutEffect(() => {
         const token = SecureStore.getItem("userToken")
-        console.log(token)
         setState(token)
     }, [])
     return <Redirect href={state ? "(root)/home" : "(auth)/welcome"} />

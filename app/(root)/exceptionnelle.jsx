@@ -117,7 +117,7 @@ const exceptionnelle = () => {
                         </Text>
                     </View>
                 </View>
-                <View className="mt-[30px]">
+                <View className="mt-[20px]">
                     <Text className="text-[22px] font-bold font-poppins text-primaryBlk">
                         {ads?.title}
                     </Text>
@@ -191,13 +191,13 @@ const exceptionnelle = () => {
                                 />
                             </View>
                             <Text className="text-white font-poppins text-center">
-                                Phone
+                                Send a message
                             </Text>
                         </TouchableOpacity>
                     </View>
                 </View>
                 <View className="px-6 py-5 mt-[50px]" style={styles.boxShadow}>
-                    <Text className="text-[22px] font-poppins font-semibold text-center flex gap-[30px]">
+                    <Text className="text-[22px] font-bold font-poppins text-center flex gap-[30px]">
                         SAFETY TIPS FOR BUYERS
                     </Text>
                     <View className="mt-[30px]">

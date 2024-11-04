@@ -58,7 +58,7 @@ const Search = ({ showCategories, setShowCategories }) => {
                         }`}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>router.push("(root)/categories")}>
                     <Text className="text-[16px] font-semibold font-poppins text-primary">
                         View more
                     </Text>
