@@ -1,10 +1,11 @@
-import { View, Text, ScrollView } from "react-native"
+import { View, Text, ScrollView, Alert } from "react-native"
 import { aboutUsData, contact, follow, screens } from "../../constant/data"
 import { TouchableOpacity } from "react-native"
 import { Image } from "react-native"
 import { router } from "expo-router"
 import { useContext } from "react"
 import { AppContext } from "../../store/store"
+import * as SecureStore from "expo-secure-store";
 
 const Menu = ({ setIsShowMenu }) => {
     const { setShowMenu } = useContext(AppContext)
@@ -14,7 +15,26 @@ const Menu = ({ setIsShowMenu }) => {
         setShowMenu(false)
         setIsShowMenu(false)
     }
-
+    const logout=()=>{
+        Alert.alert(
+            "Confirm Logout",
+            "Are you sure you want to log out?",
+            [
+              {
+                text: "Cancel",
+                style: "cancel",
+              },
+              {
+                text: "Yes",
+                onPress: async () => {
+                    await SecureStore.deleteItemAsync("userToken");
+                    router.replace("(auth)/welcome") // Update auth state or navigate to login
+                },
+              },
+            ],
+            { cancelable: true }
+          );
+    }
     return (
         <ScrollView>
             <View className="bg-[#00AEF0] px-10 py-5">
@@ -32,25 +52,25 @@ const Menu = ({ setIsShowMenu }) => {
                     ))}
                 </View>
                 <View className="flex-row items-center mt-5">
-                    <TouchableOpacity className="flex-row items-center gap-[10px] bg-[#010101] px-[18px] py-[10px] rounded-[4px]">
+                    <TouchableOpacity className="flex-row items-center gap-[10px] bg-[#010101] px-[18px] py-[10px] rounded-[4px]" onPress={()=>handleOnPress({link:'(add)/advertise'})}>
                         <View className="bg-white w-5 h-5 rounded-full flex-row justify-center items-center">
                             <Image
                                 source={require("../../assets/images/plus.png")}
                             />
                         </View>
-                        <Text className="text-white font-poppins text-[16px] font-semibold uppercase ">
+                        <Text className="text-white font-poppins text-[16px] font-semibold uppercase " >
                             ADD LISTING{" "}
                         </Text>
                     </TouchableOpacity>
                 </View>
                 <View className="flex-row items-center mt-5">
-                    <TouchableOpacity className="flex-row items-center gap-[10px] border-[1px] border-white px-[18px] py-[10px] rounded-[4px]">
-                        <Image
+                    <TouchableOpacity onPress={logout} className="flex-row items-center gap-[10px] border-[1px] border-white px-[18px] py-[10px] rounded-[4px]">
+                        {/* <Image
                             source={require("../../assets/images/selectArrow (2).png")}
                             className="w-5 h-5"
-                        />
+                        /> */}
                         <Text className="text-white font-poppins text-[16px] font-semibold uppercase ">
-                            EN
+                            LOGOUT
                         </Text>
                         <Image
                             source={require("../../assets/images/selectArrow (1).png")}
