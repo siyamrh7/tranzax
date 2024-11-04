@@ -2,8 +2,9 @@ import { AntDesign } from "@expo/vector-icons"
 import { useContext, useEffect, useState } from "react"
 import { TouchableOpacity } from "react-native"
 import { View, Text, Image } from "react-native"
-import { WebView } from 'react-native-webview';
-import { AppContext } from "../../store/store";
+import { WebView } from "react-native-webview"
+import { AppContext } from "../../store/store"
+import { router } from "expo-router"
 
 //
 /*  
@@ -25,22 +26,21 @@ const AdsCard = ({ ads }) => {
     const { allCategories } = useContext(AppContext)
 
     useEffect(() => {
-
-        const data = allCategories.find((c) => (c.id == ads.category.parent_id))
+        const data = allCategories.find((c) => c.id == ads.category.parent_id)
         setCat(data)
-
-
-    }, [])
+    }, [allCategories])
 
     return (
         <View className="p-5 border-[1px] bg-white border-transparent shadow-custom-blue">
             <View className="relative">
                 {/* <Image source={ads.img} className="w-full rounded-[4px]" /> */}
                 <WebView
-                    source={{ uri: `https://iframe.mediadelivery.net/embed/${ads.videos[0].url}` }}
+                    source={{
+                        uri: `https://iframe.mediadelivery.net/embed/${ads.videos[0].url}`,
+                    }}
                     // style={styles.video}
                     allowsInlineMediaPlayback
-                    style={{ width: '100%', height: 200 }}
+                    style={{ width: "100%", height: 200 }}
                     mediaPlaybackRequiresUserAction={false} // Automatically play if possible
                 />
                 <TouchableOpacity
@@ -55,30 +55,41 @@ const AdsCard = ({ ads }) => {
                 </TouchableOpacity>
             </View>
             <View className="mt-6 flex-row items-center gap-2">
-                <Image source={{
-                    uri: `${process.env.EXPO_PUBLIC_IMAGE_CATEGORY_URL}/${cat.picture}`,
-                }}
+                <Image
+                    source={{
+                        uri: `${process.env.EXPO_PUBLIC_IMAGE_CATEGORY_URL}/${cat?.picture}`,
+                    }}
                     className="w-[24px] h-[40px]"
-
                 />
-                <Text className="text-primaryBlk font-bold  text-[12px] font-poppins font-medium uppercase ">
-                    {cat.name}
+                <Text className="text-primaryBlk font-bold  text-[12px] font-poppins uppercase ">
+                    {cat?.name}
                 </Text>
                 <View className="bg-primaryBlk w-[5px] h-[2px]"></View>
                 <Text className="text-primaryBlk text-[12px] font-poppins font-medium uppercase ">
-                    {ads.category.name}
+                    {ads?.category?.name}
                 </Text>
             </View>
             <View className="mt-[5px] font-poppins text-primaryBlk text-[20px] font-semibold uppercase">
-                <Text className="text-primaryBlk text-[20px] font-bold font-poppins">
-                    {ads.title}
-                </Text>
+                <TouchableOpacity
+                    onPress={() =>
+                        router.push({
+                            pathname: "(root)/exceptionnelle",
+                            params: {
+                                categoryId: ads.id,
+                            },
+                        })
+                    }
+                >
+                    <Text className="text-primaryBlk text-[20px] font-bold font-poppins">
+                        {ads?.title}
+                    </Text>
+                </TouchableOpacity>
                 <View className="mt-2 flex-row gap-2 items-center">
-                    {/* <Image
+                    <Image
                         source={require("../../assets/images/ads/place.png")}
-                    /> */}
+                    />
                     <Text className="text-primaryBlk font-semibold font-poppins text-[16px] tracking-[-.5px]">
-                        {ads.address}
+                        {ads?.city?.name}
                     </Text>
                 </View>
                 <View className="mt-2 flex-row gap-2 items-center">
@@ -86,7 +97,7 @@ const AdsCard = ({ ads }) => {
                         source={require("../../assets/images/ads/price.png")}
                     />
                     <Text className="text-primary font-semibold font-poppins text-[20px] tracking-[-.5px]">
-                        {ads.price} $
+                        {ads?.price !== undefined && parseInt(ads?.price)} $
                     </Text>
                 </View>
             </View>

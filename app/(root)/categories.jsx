@@ -51,7 +51,7 @@ const categories = () => {
                                 </Text>
                             </View>
                             <View className="flex gap-[10px] mt-6">
-                                {subCategories.map((subCat, index) => (
+                                {category?.children?.map((subCat, index) => (
                                     <View
                                         key={index}
                                         className=" flex-row items-center gap-1"

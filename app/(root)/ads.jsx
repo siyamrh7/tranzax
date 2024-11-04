@@ -7,10 +7,10 @@ import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../../store/store"
 
 const ads = () => {
-    const {categoryId ,category} = useLocalSearchParams()
+    const { categoryId, category } = useLocalSearchParams()
     const { allPosts } = useContext(AppContext)
-    const [ads,setAds]=useState([])
-    const [search,setSearch]=useState("")
+    const [ads, setAds] = useState([])
+    const [search, setSearch] = useState("")
     // console.log(allPosts, "allPosts")
     // const []
     // console.log(allPosts.length)
@@ -24,24 +24,32 @@ const ads = () => {
     //     )
     // }
     useEffect(() => {
-        if(search){
-            const data=allPosts.filter((d)=>(d.title.toLowerCase().includes(search.toLowerCase())))
+        if (search) {
+            const data = allPosts.filter((d) =>
+                d.title.toLowerCase().includes(search.toLowerCase())
+            )
             setAds(data)
-        }else if(categoryId){
-            const data=allPosts.filter((d)=>(d.category.parent_id===categoryId))
+        } else if (categoryId) {
+            const data = allPosts.filter(
+                (d) => d.category.parent_id === categoryId
+            )
             setAds(data)
-        }else{
+        } else {
             setAds(allPosts)
         }
-    }, [categoryId,search])
+    }, [categoryId, search, allPosts])
     return (
         <ScrollView className="mt-[14px]">
-            <FilterForm itemIn={category} search={search} setSearch={setSearch}/>
-             <View className="px-4 flex gap-5 mt-5 mb-20">
+            <FilterForm
+                itemIn={category}
+                search={search}
+                setSearch={setSearch}
+            />
+            <View className="px-4 flex gap-5 mt-5 mb-20">
                 {ads.map((ads) => (
                     <AdsCard key={ads.id} ads={ads} />
                 ))}
-            </View> 
+            </View>
         </ScrollView>
     )
 }

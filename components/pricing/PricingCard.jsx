@@ -1,11 +1,16 @@
 import { View, Text, ImageBackground } from "react-native"
-import { pricingCategories } from "../../constant/data"
 import { TouchableOpacity } from "react-native"
 import { Image } from "react-native"
+import { useContext } from "react"
+import { AppContext } from "../../store/store"
 const PricingCard = () => {
+    const { servicePackages } = useContext(AppContext)
+    if (servicePackages?.length === undefined || servicePackages?.length <= 0) {
+        return null
+    }
     return (
         <View>
-            {pricingCategories.map((category) => (
+            {servicePackages?.map((category) => (
                 <View key={category.name} className="relative">
                     {category.recommended && (
                         <View className="absolute left-0 w-full flex-row justify-center items-center top-[28px] z-10">
@@ -19,6 +24,9 @@ const PricingCard = () => {
                     <View className="p-7 mt-[50px] rounded-xl bg-white border-t-[1px] border-white shadow-custom-blue">
                         <Text className="font-poppins text-[20px] text-primaryBlk text-center font-medium ">
                             {category.name}
+                        </Text>
+                        <Text className="text-[44px] mt-3 text-center font-semibold font-poppins tracking-[-.5px]">
+                            {category.price}
                         </Text>
                         <Text className="text-lightColor text-[12px] text-center mt-[10px]">
                             {category.title}
@@ -35,21 +43,23 @@ const PricingCard = () => {
                                 Features
                             </Text>
                             <View className="mt-4">
-                                {category.features.map((feature) => (
-                                    <View
-                                        key={feature}
-                                        className="flex-row items-center gap-[10px] mt-[10px]"
-                                    >
-                                        <ImageBackground className="w-4 h-4 bg-primary rounded-full flex items-center justify-center">
-                                            <Image
-                                                source={require("../../assets/images/pricing/tik.png")}
-                                            />
-                                        </ImageBackground>
-                                        <Text className="text-lightColor text-[12px]">
-                                            {feature}
-                                        </Text>
-                                    </View>
-                                ))}
+                                {category.description
+                                    .split("\r\n")
+                                    ?.map((feature, index) => (
+                                        <View
+                                            key={index}
+                                            className="flex-row items-center gap-[10px] mt-[10px]"
+                                        >
+                                            <ImageBackground className="w-4 h-4 bg-primary rounded-full flex items-center justify-center">
+                                                <Image
+                                                    source={require("../../assets/images/pricing/tik.png")}
+                                                />
+                                            </ImageBackground>
+                                            <Text className="text-lightColor text-[12px]">
+                                                {feature}
+                                            </Text>
+                                        </View>
+                                    ))}
                             </View>
                         </View>
                     </View>

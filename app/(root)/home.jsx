@@ -17,16 +17,23 @@ export default function Home() {
     if (categories.length <= 0) {
         return null
     }
+    const [showCategories, setShowCategories] = useState(false)
+
     return (
         <ScrollView>
             <View>
                 {/* <HeroSection /> */}
                 <View>
                     <View className="px-4">
-                        <Search />
+                        <Search
+                            showCategories={showCategories}
+                            setShowCategories={setShowCategories}
+                        />
                     </View>
-                    <View className="px-4">
-                        <Categories categories={categories.getCategories} />
+                    <View className="px-4 mt-[30px]">
+                        {showCategories && (
+                            <Categories categories={categories.getCategories} />
+                        )}
                     </View>
                     <View className="px-4">
                         <FeaturedAds

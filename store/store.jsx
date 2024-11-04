@@ -12,10 +12,11 @@ export function AppProvider({ children }) {
     const [packageLists, setPackageLists] = useState([])
     const [error, setError] = useState([])
     const [cityLists, setCityLists] = useState([])
+    const [servicePackages, setServicePackages] = useState([])
     const getAllCategories = async () => {
         try {
             const res = await axios.get(
-                `${process.env.EXPO_PUBLIC_BASE_URL}/api/categories`
+                `${process.env.EXPO_PUBLIC_BASE_URL}/api/categories?parentId=0&embed=iure,children`
             )
             if (res.status === 200) {
                 setAllCategories(res.data.result.data)
@@ -25,6 +26,22 @@ export function AppProvider({ children }) {
         } catch (err) {
             console.error("Failed to fetch all categories:", err)
             setError("Could not load all categories.")
+        }
+    }
+
+    const getServicePackages = async () => {
+        try {
+            const res = await axios.get(
+                `${process.env.EXPO_PUBLIC_BASE_URL}/api/packages?embed=currency`
+            )
+            if (res.status === 200) {
+                setServicePackages(res.data.result.data)
+            } else {
+                setError(`Error: Received status ${res.status}`)
+            }
+        } catch (err) {
+            console.error("Failed to fetch service packages:", err)
+            setError("Could not load service packages.")
         }
     }
     const packagesLits = async () => {
@@ -75,7 +92,7 @@ export function AppProvider({ children }) {
     const getAllPostsDetails = async () => {
         try {
             const res = await axios.get(
-                `${process.env.EXPO_PUBLIC_BASE_URL}/api/posts?embed=user,category,videos`
+                `${process.env.EXPO_PUBLIC_BASE_URL}/api/posts?embed=user,category,videos,city`
             )
             if (res.status === 200) {
                 setAllPosts(res.data.result.data)
@@ -110,6 +127,7 @@ export function AppProvider({ children }) {
             await getAllCategories()
             await packagesLits()
             await getCityLists()
+            await getServicePackages()
         }
         getAllData()
     }, [])
@@ -124,6 +142,7 @@ export function AppProvider({ children }) {
                 allPosts,
                 packageLists,
                 cityLists,
+                servicePackages,
             }}
         >
             {children}

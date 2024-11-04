@@ -13,6 +13,10 @@ export default function RootLayout() {
             <Stack.Screen name="country" options={{ headerShown: false }} />
             <Stack.Screen name="advertise" options={{ headerShown: false }} />
             <Stack.Screen name="categories" options={{ headerShown: false }} />
+            <Stack.Screen
+                name="exceptionnelle"
+                options={{ headerShown: false }}
+            />
         </Stack>
     )
 }

@@ -32,7 +32,7 @@ const Categories = ({ categories }) => {
                     "
                         onPress={() =>
                             router.push({
-                                pathname: `/ads`,
+                                pathname: `(root)/ads`,
                                 params: {
                                     category: category.name,
                                     categoryId: category.id,
