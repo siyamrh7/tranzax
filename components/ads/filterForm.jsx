@@ -1,7 +1,22 @@
 import { View, Text, TextInput, TouchableOpacity } from "react-native"
 import { AntDesign } from "@expo/vector-icons"
+import { useState } from "react"
+import AdsSort from "../adsSort/AdsSort"
 
-const YourComponent = ({ itemIn ,search,setSearch}) => {
+const sortArr = [
+    "price : low to high",
+    "price : high to low",
+    "relevance",
+    "date",
+]
+const YourComponent = ({
+    itemIn,
+    search,
+    setSearch,
+    sortedBy,
+    setSortedBy,
+}) => {
+    const [showShort, setShowSort] = useState(false)
     return (
         <View className="px-4">
             <View className="flex-row items-center gap-2">
@@ -9,7 +24,7 @@ const YourComponent = ({ itemIn ,search,setSearch}) => {
                     <TextInput
                         placeholder="LOOKING FOR SOMETHING"
                         className="font-poppins px-3 py-2 h-12"
-                        onChangeText={(e)=>setSearch(e)}
+                        onChangeText={(e) => setSearch(e)}
                         value={search}
                     />
                 </View>
@@ -41,13 +56,29 @@ const YourComponent = ({ itemIn ,search,setSearch}) => {
                         )}
                     </View>
                 </View>
-                <View className="max-w-[96px] w-full">
-                    <TouchableOpacity className="bg-[#00ADEF] rounded-[12px] flex-row items-center justify-center h-12">
+                <View className="max-w-[96px] w-full relative">
+                    <TouchableOpacity
+                        className="bg-primary rounded-[12px] flex-row items-center justify-center h-12"
+                        onPress={() => setShowSort(!showShort)}
+                    >
                         <Text className="font-poppins text-[12px] text-white uppercase font-semibold text-center">
                             Sort by
                         </Text>
-                        <AntDesign name="caretdown" size={8} color="white" />
+                        <AntDesign
+                            name={showShort ? "caretdown" : "caretup"}
+                            size={8}
+                            color="white"
+                        />
                     </TouchableOpacity>
+                    {showShort && (
+                        <View className="absolute top-full mt-[50px] w-[100px] z-20 left-0 bg-white p-3 rounded-[4px]">
+                            <AdsSort
+                                arr={sortArr}
+                                setSortedBy={setSortedBy}
+                                setShowSort={setShowSort}
+                            />
+                        </View>
+                    )}
                 </View>
             </View>
         </View>

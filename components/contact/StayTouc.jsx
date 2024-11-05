@@ -1,5 +1,6 @@
-import { View, Text, Image } from "react-native"
+import { View, Text, Image, Linking } from "react-native"
 import { follow, stayTouch } from "../../constant/data"
+import { TouchableOpacity } from "react-native"
 
 export default function StayTouch() {
     return (
@@ -10,13 +11,13 @@ export default function StayTouch() {
             <Text className="font-bold font-poppins leading-[36px] text-[30px] text-white uppercase">
                 WITH US ANYTIME
             </Text>
-            <View className="mt-10">
+            <View className="mt-10 flex gap-[14px]">
                 {stayTouch.map((data) => (
                     <View
                         key={data.name}
                         className="flex-row items-center gap-[10px]"
                     >
-                        <View className="p[10px]">
+                        <View className="p-[14px] bg-[#19B6F1] rounded-full w-[50px] flex-row items-center justify-center">
                             <Image source={data.icon} className="" />
                         </View>
                         <View className="">
@@ -38,9 +39,20 @@ export default function StayTouch() {
                 </View>
                 <View className="flex-row gap-[10px] items-center">
                     {follow.map((data, index) => (
-                        <View key={index} className="p-[14px]">
+                        <TouchableOpacity
+                            key={index}
+                            className="p-[14px]"
+                            onPress={() =>
+                                Linking.openURL(data.link).catch((error) =>
+                                    console.error(
+                                        "Failed to open email link:",
+                                        error
+                                    )
+                                )
+                            }
+                        >
                             <Image source={data.img} />
-                        </View>
+                        </TouchableOpacity>
                     ))}
                 </View>
             </View>

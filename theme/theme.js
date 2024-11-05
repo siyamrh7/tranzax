@@ -4,7 +4,7 @@ export const CustomTheme = {
     ...DefaultTheme,
     colors: {
         ...DefaultTheme.colors,
-        background: "#ffffff",
+        background: "#fff",
     },
     fonts: {
         regular: "Poppins-Regular",

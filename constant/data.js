@@ -244,18 +244,23 @@ export const contact = [
 export const follow = [
     {
         img: insta,
+        link: "https://www.instagram.com/tranzaxx/",
     },
     {
         img: fb,
+        link: "https://www.facebook.com/people/Tranzaxx/100083200732738",
     },
     {
         img: linkind,
+        link: "https://www.linkedin.com/company/tranzaxx/",
     },
     {
         img: x,
+        link: "https://x.com/tranzaxx",
     },
     {
         img: message,
+        link: "mailto:info@tranzaxx.com",
     },
 ]
 
@@ -376,23 +381,23 @@ OUT. OUR TEAM IS ALWAYS READY TO HELP YOU.`,
 ]
 export const contactUsForm = [
     {
-        name: "First Name",
-        placeholder: "Fist Name",
-    },
-    {
-        name: "Last Name",
+        name: "first_name",
         placeholder: "First Name",
     },
     {
-        name: "Company Name",
+        name: "last_name",
+        placeholder: "Last Name",
+    },
+    {
+        name: "company_name",
         placeholder: "Company Name",
     },
     {
-        name: "Email Address",
+        name: "email",
         placeholder: "Email Address",
     },
     {
-        name: "Message",
+        name: "message",
         placeholder: "Message",
     },
 ]

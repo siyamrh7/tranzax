@@ -6,6 +6,7 @@ import { adsCardHolderInfo, adsCardInformation } from "../../constant/data"
 import { useState } from "react"
 import { TouchableOpacity } from "react-native"
 import { AntDesign } from "@expo/vector-icons"
+import { router } from "expo-router"
 
 export default function Payment() {
     const [cardholderInfo, setCardHolderDerInfo] = useState({
@@ -32,14 +33,23 @@ export default function Payment() {
                     style={styles.shadowBox}
                 >
                     <View className="flex-row items-center justify-between">
-                        <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
-                            ADVERTISE
-                        </Text>
+                        <TouchableOpacity
+                            onPress={() => router.push("(add)/advertise")}
+                        >
+                            <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
+                                ADVERTISE
+                            </Text>
+                        </TouchableOpacity>
 
                         <View className="w-[1px] h-5 bg-[#BFBFBF]"></View>
-                        <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
-                            PACKAGES
-                        </Text>
+                        <TouchableOpacity
+                            onPress={() => router.push("(add)/packages")}
+                        >
+                            <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
+                                PACKAGES
+                            </Text>
+                        </TouchableOpacity>
+
                         <View className="w-[1px] h-5 bg-[#BFBFBF]"></View>
 
                         <Text className="text-[20px] font-poppins font-semibold text-primary uppercase">
@@ -69,7 +79,7 @@ export default function Payment() {
                         <View className="flex gap-[14px] mt-[14px]">
                             {adsCardHolderInfo.map((info) => (
                                 <View key={info.key} className="">
-                                    <Text className="text-[#061B3B] text-[16px] font-poppins font-semibold">
+                                    <Text className="text-[#061B3B] text-[16px] font-poppins font-bold">
                                         {info.label}
                                     </Text>
                                     <View className="border-[1px] mt-[10px] border-[#BFBFBF] px-[14px] py-[10px] rounded-[4px]">
@@ -109,7 +119,7 @@ export default function Payment() {
                     <View className="flex gap-[14px] mt-[14px]">
                         {adsCardInformation.map((info) => (
                             <View key={info.name} className="">
-                                <Text className="text-[#061B3B] text-[16px] font-poppins font-semibold">
+                                <Text className="text-[#061B3B] text-[16px] font-poppins font-bold">
                                     {info.label}
                                 </Text>
                                 <View className="border-[1px] mt-[10px] border-[#BFBFBF] px-[14px] py-[10px] rounded-[4px]">

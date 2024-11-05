@@ -8,14 +8,14 @@ const CardHolderInformationSection = () => {
                 <Image
                     source={require("../../assets/images/advertise/cardinfo.png")}
                 />
-                <Text className="text-primary text-[22px] translate-y-1 font-semibold font-poppins uppercase">
+                <Text className="text-primary text-[22px] translate-y-1 font-bold font-poppins uppercase">
                     Card Holder Information
                 </Text>
             </View>
 
-            <View className="mt-[10px] flex-row items-center justify-between">
+            <View className="mt-4 flex-row items-center justify-between">
                 <View className="w-[48%]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins uppercase">
                         First Name *
                     </Text>
                     <View className="px-[10px] py-[10px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -26,10 +26,10 @@ const CardHolderInformationSection = () => {
                     </View>
                 </View>
                 <View className="w-[48%]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins uppercase">
                         Last Name *
                     </Text>
-                    <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
+                    <View className="px-[10px] py-[10px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
                         <TextInput
                             placeholder="Card Holder's Last Name"
                             className="placeholder:text-[#999] font-poppins text-[12px]"
@@ -40,7 +40,7 @@ const CardHolderInformationSection = () => {
 
             {/* Address Information */}
             <View className="mt-[10px]">
-                <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
+                <Text className="text-[#061B3B] text-[12px] font-bold font-poppins uppercase">
                     Address *
                 </Text>
                 <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -54,7 +54,7 @@ const CardHolderInformationSection = () => {
             {/* City and State */}
             <View className="mt-[10px] flex-row items-center justify-between">
                 <View className="w-[48%]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins uppercase">
                         City *
                     </Text>
                     <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -65,7 +65,7 @@ const CardHolderInformationSection = () => {
                     </View>
                 </View>
                 <View className="w-[48%]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins uppercase">
                         State/Province *
                     </Text>
                     <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -80,7 +80,7 @@ const CardHolderInformationSection = () => {
             {/* Postal Code and Country */}
             <View className="mt-[10px] flex-row items-center justify-between">
                 <View className="w-[48%]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins uppercase">
                         Postal Code *
                     </Text>
                     <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -91,7 +91,7 @@ const CardHolderInformationSection = () => {
                     </View>
                 </View>
                 <View className="w-[48%]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins uppercase">
                         Country *
                     </Text>
                     <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">

@@ -19,11 +19,11 @@ const advertise = () => {
                             Sub total 1000$
                         </Text>
                         <Text className="text-primary font-poppins text-[18px] text-right font- mt-2">
-                            Discount os
+                            Discount 0s
                         </Text>
-                        <Text className="text-primary font-poppins text-[18px] text-right font-semibold mt-2">
+                        {/* <Text className="text-primary font-poppins text-[18px] text-right font-semibold mt-2">
                             total price 1000s
-                        </Text>
+                        </Text> */}
                         <View className="mt-1 flex-row items-center justify-end">
                             <TouchableOpacity className="bg-[#00ADEF] w-[168px] p-[10px] rounded-[12px]">
                                 <Text className="font-poppins text-[18px] text-white uppercase font-semibold text-center">

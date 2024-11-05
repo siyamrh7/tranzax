@@ -40,12 +40,15 @@ const Categories = ({ categories }) => {
                             })
                         }
                     >
-                        <Image
-                            source={{
-                                uri: `${process.env.EXPO_PUBLIC_IMAGE_CATEGORY_URL}/${category.picture}`,
-                            }}
-                            className="w-[70px] h-[70px]"
-                        />
+                        <View className="bg-[#D6FEFF] w-[70px] h-[70px] rounded-full flex-row items-center justify-center relative">
+                            <Image
+                                source={{
+                                    uri: `${process.env.EXPO_PUBLIC_IMAGE_CATEGORY_URL}/${category.picture}`,
+                                }}
+                                className="w-[70px] h-[70px]"
+                            />
+                            <View className="bg-[#d6feffb4] w-[70px] h-[70px] rounded-full absolute"></View>
+                        </View>
                         <Text className="text-[#010101] text-[28px] font-medium font-poppins">
                             {category.name}
                         </Text>

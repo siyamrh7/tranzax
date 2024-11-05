@@ -15,14 +15,14 @@ export default function Home() {
     const { categories } = useContext(AppContext)
 
     const [showCategories, setShowCategories] = useState(false)
-    
+
     if (categories.length <= 0) {
-        return null
+        return <View></View>
     }
     return (
         <ScrollView>
             <View>
-                {/* <HeroSection /> */}
+                <HeroSection />
                 <View>
                     <View className="px-4">
                         <Search
