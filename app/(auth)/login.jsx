@@ -126,7 +126,7 @@ const Login = () => {
     return (
         <ScrollView className="px-4">
             <View
-                className="rounded-[12px] bg-[#fff] p-6 mt-[50px] border-[1px] border-transparent"
+                className="rounded-[12px] bg-[#fff] p-6 mt-[50px] border-[1px] border-transparent "
                 style={authShadowStyle.box}
             >
                 <View className="pt-6 pl-6 pr-6">
@@ -220,7 +220,7 @@ const Login = () => {
                         onPress={() => router.replace("/register")}
                     >
                         <Text className="text-[#010101] text-[14px] font-bold">
-                            SIGN UP
+                        {" "}SIGN UP
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -233,13 +233,19 @@ export default Login
 
 export const authShadowStyle = StyleSheet.create({
     box: {
-        shadowColor: "rgba(0, 0, 0, 0.10)",
-        shadowOffset: {
-            width: 0,
-            height: 0,
-        },
-        shadowOpacity: 1,
+    
+        backgroundColor: '#fff',
+    
+        // Shadow for iOS
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.1,
         shadowRadius: 30,
-        elevation: 50,
+    
+        // Shadow for Android
+        elevation: 10,
+        marginLeft:10,
+        marginRight:10,
+        marginBottom:20
     },
 })

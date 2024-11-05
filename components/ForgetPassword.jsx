@@ -6,13 +6,13 @@ import {
     Image,
     TouchableOpacity,
     Alert,
+    StyleSheet,
 } from "react-native"
 import Btn from "./shared/Btn"
 import { useState } from "react"
 import Toast from "react-native-toast-message"
 import axios from "axios"
 import { toastConfig } from "../constant/toastConfig"
-import { authShadowStyle } from "../constant/style"
 import { router } from "expo-router"
 
 const ForgetPassword = ({ setIsLogin }) => {
@@ -76,7 +76,7 @@ const ForgetPassword = ({ setIsLogin }) => {
                     <Text className="text-capitalize font-poppins  text-[#010101] font-bold text-[24px] text-center uppercase">
                         Forgot Password
                     </Text>
-                    <View className="flex-row items-center mt-[50px]">
+                    <View className="flex-row items-center mt-[50px] mb-[10px]">
                         <Text className=" text-[#010101] uppercase font-poppins text-[16px] font-bold">
                             Login
                         </Text>
@@ -106,6 +106,7 @@ const ForgetPassword = ({ setIsLogin }) => {
                 <View className="mt-5">{/* <Btn title={Login} /> */}</View>
                 <View className="mt-5 text-[#999] font-poppins flex-row items-center justify-center">
                     <Text>DO NOT HAVE AN ACCOUNT?</Text>
+                    <Text> </Text>
                     <TouchableOpacity className="">
                         <Text
                             className="text-[#010101] text-[14px] font-bold"
@@ -121,3 +122,21 @@ const ForgetPassword = ({ setIsLogin }) => {
 }
 
 export default ForgetPassword
+export const authShadowStyle = StyleSheet.create({
+    box: {
+    
+        backgroundColor: '#fff',
+    
+        // Shadow for iOS
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.1,
+        shadowRadius: 30,
+    
+        // Shadow for Android
+        elevation: 10,
+        marginLeft:10,
+        marginRight:10,
+        marginBottom:20
+    },
+})

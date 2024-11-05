@@ -285,7 +285,7 @@ const Register = () => {
                                 onPress={() => router.replace("/login")}
                             >
                                 <Text className="text-[#010101] font-semibold text-[14px]">
-                                    Login
+                                {" "} Login
                                 </Text>
                             </TouchableOpacity>
                         </View>
@@ -300,15 +300,19 @@ export default Register
 
 const authShadowStyle = {
     box: {
-        // iOS Shadow
-        shadowColor: "rgba(0, 0, 0, 0.1)", // Shadow color with rgba for transparency
-        shadowOffset: {
-            width: 0,
-            height: 10, // Mimic the vertical offset you want
-        },
-        shadowOpacity: 0.1, // Opacity level
-        shadowRadius: 30, // This mimics the blur effect
-        // Android Shadow
-        elevation: 5, // Adjust as needed for the desired shadow effect
+    
+        backgroundColor: '#fff',
+    
+        // Shadow for iOS
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.1,
+        shadowRadius: 30,
+    
+        // Shadow for Android
+        elevation: 10,
+        marginLeft:10,
+        marginRight:10,
+        marginBottom:20
     },
 }

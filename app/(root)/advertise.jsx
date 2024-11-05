@@ -19,7 +19,7 @@ const advertise = () => {
                             Sub total 1000$
                         </Text>
                         <Text className="text-primary font-poppins text-[18px] text-right font- mt-2">
-                            Discount 0s
+                            Discount 0$
                         </Text>
                         {/* <Text className="text-primary font-poppins text-[18px] text-right font-semibold mt-2">
                             total price 1000s

@@ -14,7 +14,7 @@ const CardInformation = () => {
 
             <View className="mt-[10px] flex-row items-center justify-between">
                 <View className="w-[48%]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins uppercase">
                         Card Number *
                     </Text>
                     <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -25,7 +25,7 @@ const CardInformation = () => {
                     </View>
                 </View>
                 <View className="w-[48%]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins uppercase">
                         Card Expiry Month *
                     </Text>
                     <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -39,7 +39,7 @@ const CardInformation = () => {
 
             <View className="mt-[10px] flex-row items-center justify-between">
                 <View className="w-[48%]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins uppercase">
                         Card Expiry Year *
                     </Text>
                     <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -50,7 +50,7 @@ const CardInformation = () => {
                     </View>
                 </View>
                 <View className="w-[48%]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins uppercase">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins uppercase">
                         Card CVV *
                     </Text>
                     <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">

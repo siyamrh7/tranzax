@@ -1,10 +1,12 @@
-import { View, Text, TextInput } from "react-native"
+import { View, Text, TextInput, TouchableOpacityBase } from "react-native"
 import { contactUsForm } from "../../constant/data"
 import { useState } from "react"
 import BtnWithArrow from "../shared/BtnWithArrow"
 import axios from "axios"
 import Toast from "react-native-toast-message"
 import { toastConfig } from "../../constant/toastConfig"
+import { AntDesign } from "@expo/vector-icons"
+import { TouchableOpacity } from "react-native"
 
 const ContactForm = () => {
     const [loading, setLoading] = useState(false)
@@ -111,13 +113,26 @@ const ContactForm = () => {
             ))}
 
             <View className="mt-4 flex-row items-center justify-center">
-                <BtnWithArrow
+                {/* <BtnWithArrow
                     handler={handleSendContact}
                     loading={loading}
                     title={"Send message"}
                     px={"px-[100px]"}
                     py={"py-[10px]"}
-                />
+                /> */}
+
+<TouchableOpacity
+            className={`bg-[#00ADEF] rounded-[12px] flex-row items-center gap-1 px-[80px] py-[10px]`}
+            onPress={handleSendContact}
+        >
+            <Text
+            numberOfLines={1} ellipsizeMode="clip"
+                className={`font-poppins text-[16px] text-white font-semibold text-center `}
+            >
+                Send message
+            </Text>
+            <AntDesign name="arrowright" size={20} color="white" />
+        </TouchableOpacity>
             </View>
         </View>
     )

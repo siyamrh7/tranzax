@@ -23,7 +23,7 @@ const PricingCard = () => {
                     )}
                     <View className="p-7 mt-[50px] rounded-xl bg-white border-t-[1px] border-white shadow-custom-blue">
                         <Text className="font-poppins text-[20px] text-primaryBlk text-center font-medium ">
-                            {category.name}
+                            {category.name.toUpperCase()}
                         </Text>
                         <Text className="text-[44px] mt-3 text-center font-semibold font-poppins tracking-[-.5px]">
                             {category.price} $
