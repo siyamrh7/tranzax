@@ -41,7 +41,7 @@ const Packages = ({ selectCategory, setSelectCategory }) => {
                                             <View className="w-3 h-3 rounded-full bg-primary" />
                                         )}
                                     </TouchableOpacity>
-                                    <Text className="text-[#8F8F8F]  font-poppins font-semibold text-[16px] uppercase">
+                                    <Text className="text-[#8F8F8F]  font-poppins font-bold text-[16px] uppercase">
                                         {priceCat.short_name}
                                     </Text>
                                 </View>

@@ -10,7 +10,7 @@ export default function PersonalInformation() {
                     <Image
                         source={require("../../assets/images/advertise/personalinfoicon.png")}
                     />
-                    <Text className="text-primary text-[22px] translate-y-1 font-semibold font-bold">
+                    <Text className="text-primary text-[22px] translate-y-1 font-bold">
                         Personal Information
                     </Text>
                 </View>

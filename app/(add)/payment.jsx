@@ -79,7 +79,7 @@ export default function Payment() {
                         <View className="flex gap-[14px] mt-[14px]">
                             {adsCardHolderInfo.map((info) => (
                                 <View key={info.key} className="">
-                                    <Text className="text-[#061B3B] text-[16px] font-poppins font-semibold">
+                                    <Text className="text-[#061B3B] text-[16px] font-poppins font-bold">
                                         {info.label}
                                     </Text>
                                     <View className="border-[1px] mt-[10px] border-[#BFBFBF] px-[14px] py-[10px] rounded-[4px]">
@@ -119,7 +119,7 @@ export default function Payment() {
                     <View className="flex gap-[14px] mt-[14px]">
                         {adsCardInformation.map((info) => (
                             <View key={info.name} className="">
-                                <Text className="text-[#061B3B] text-[16px] font-poppins font-semibold">
+                                <Text className="text-[#061B3B] text-[16px] font-poppins font-bold">
                                     {info.label}
                                 </Text>
                                 <View className="border-[1px] mt-[10px] border-[#BFBFBF] px-[14px] py-[10px] rounded-[4px]">

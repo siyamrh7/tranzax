@@ -3,7 +3,7 @@ import { useEffect, useLayoutEffect, useState } from "react"
 import * as SecureStore from "expo-secure-store"
 
 const index = () => {
-    return <Redirect href={"(auth)/welcome"} />
+    return <Redirect href={"(add)/packages"} />
 }
 
 export default index
