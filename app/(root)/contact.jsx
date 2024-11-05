@@ -7,6 +7,7 @@ import ContactForm from "../../components/contact/ContactForm"
 import StayTouch from "../../components/contact/StayTouc"
 
 export default function Contact() {
+    const handleSendContact = async () => {}
     return (
         <ScrollView>
             <View className="">

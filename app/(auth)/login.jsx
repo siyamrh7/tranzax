@@ -13,7 +13,8 @@ import Btn from "../../components/shared/Btn"
 import ForgetPassword from "../../components/ForgetPassword"
 import { router } from "expo-router"
 import axios from "axios"
-import * as SecureStore from "expo-secure-store";
+import * as SecureStore from "expo-secure-store"
+import Toast from "react-native-toast-message"
 
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true)
@@ -34,18 +35,24 @@ const Login = () => {
             Alert.alert("Validation Error", "Both fields are required.")
             return false
         }
+
         return true
     }
 
-
     const saveToken = async (token) => {
-        await SecureStore.setItemAsync("userToken", token);
+        await SecureStore.setItemAsync("userToken", token)
         // Alert.alert("Success", "Login successful!")
         router.replace("(root)/home")
-    };
+    }
 
     const handleLogin = async () => {
-        if (!validateForm()) return
+        if (!validateForm()) {
+            return Toast.show({
+                type: "error",
+                text1: "Login Error",
+                text2: "Both fields are required",
+            })
+        }
         try {
             const response = await axios.post(
                 `${process.env.EXPO_PUBLIC_BASE_URL}/api/auth/login`,
@@ -54,10 +61,19 @@ const Login = () => {
                     password: formData.password,
                 }
             )
-            if (response.status === 200) {
-                saveToken(response.data.extra.authToken)
-               
+            if (!response.data.success) {
+                Toast.show({
+                    type: "error",
+                    text1: "Login Error",
+                    text2: response.data.message,
+                })
             }
+            saveToken(response.data.extra.authToken)
+            return Toast.show({
+                type: "success",
+                text1: "Login Successful",
+                text2: "Welcome!",
+            })
         } catch (error) {
             console.error("Login error:", error)
 
@@ -83,7 +99,11 @@ const Login = () => {
                     alertMessage ===
                     "These credentials do not match our records."
                 ) {
-                    return Alert.alert("Error", "invalid credentials")
+                    return Toast.show({
+                        type: "error",
+                        text1: "Error",
+                        text2: error.message ?? "Please try again later",
+                    })
                 }
                 Alert.alert("Error", alertMessage)
             } else if (error.request) {

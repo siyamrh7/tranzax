@@ -376,23 +376,23 @@ OUT. OUR TEAM IS ALWAYS READY TO HELP YOU.`,
 ]
 export const contactUsForm = [
     {
-        name: "First Name",
-        placeholder: "Fist Name",
-    },
-    {
-        name: "Last Name",
+        name: "first_name",
         placeholder: "First Name",
     },
     {
-        name: "Company Name",
+        name: "last_name",
+        placeholder: "Last Name",
+    },
+    {
+        name: "company_name",
         placeholder: "Company Name",
     },
     {
-        name: "Email Address",
+        name: "email",
         placeholder: "Email Address",
     },
     {
-        name: "Message",
+        name: "message",
         placeholder: "Message",
     },
 ]

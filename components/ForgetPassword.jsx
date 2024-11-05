@@ -9,8 +9,9 @@ import {
 } from "react-native"
 import Btn from "./shared/Btn"
 import { useState } from "react"
-import Toast, { BaseToast } from "react-native-toast-message"
+import Toast from "react-native-toast-message"
 import axios from "axios"
+import { toastConfig } from "../constant/toastConfig"
 
 const ForgetPassword = ({ setIsLogin }) => {
     const goLogin = () => {
@@ -21,15 +22,13 @@ const ForgetPassword = ({ setIsLogin }) => {
     const handleForgetPassword = async () => {
         setLoading(true)
         if (!emailOrPhone) {
-            return Toast.show({
-                type: "error", // You can use 'success', 'error', or 'info'
-                text1: "Please type valid email or phone",
-            })
             setLoading(false)
+            return Toast.show({
+                type: "error",
+                text1: "Please type valid email or phone number",
+            })
         }
         try {
-            // Call your API to reset password
-            // For simplicity, let's assume it's a POST request
             const response = await axios.post(
                 "https://tranzaxx.com/api/auth/password/email",
                 {
@@ -40,15 +39,15 @@ const ForgetPassword = ({ setIsLogin }) => {
             if (response.data.success) {
                 setLoading(false)
                 return Toast.show({
-                    type: "success", // You can use 'success', 'error', or 'info'
-                    text1: response?.data?.message,
+                    type: "success",
+                    text1: "Success",
                     text2: response?.data?.message,
                 })
             }
             if (!response.data.success) {
                 setLoading(false)
                 return Toast.show({
-                    type: "error", // You can use 'success', 'error', or 'info'
+                    type: "error",
                     text1: response?.data?.message,
                     text2: response?.data?.message,
                 })
@@ -57,8 +56,7 @@ const ForgetPassword = ({ setIsLogin }) => {
             console.log(error.message)
             setLoading(false)
             Toast.show({
-                type: "success", // You can use '
-                text: error.message,
+                type: "success",
                 text2: error.message,
             })
         } finally {
@@ -69,24 +67,7 @@ const ForgetPassword = ({ setIsLogin }) => {
         <ScrollView className="px-4">
             <View className="shadow-loginShadow rounded-[12px]  bg-white pb-6 mt-[50px]">
                 <View className="pt-6 pl-6 pr-6">
-                    <Toast
-                        config={{
-                            success: (props) => (
-                                <BaseToast
-                                    {...props}
-                                    style={{
-                                        borderLeftColor: "black",
-                                        backgroundColor: "black",
-                                    }}
-                                    contentContainerStyle={{
-                                        backgroundColor: "black",
-                                    }}
-                                    text1Style={{ color: "white" }}
-                                    text2Style={{ color: "white" }}
-                                />
-                            ),
-                        }}
-                    />
+                    <Toast config={toastConfig} />
                     <Text className="text-capitalize font-poppins  text-[#010101] font-semibold text-[24px] text-center uppercase">
                         Forgot Password
                     </Text>
