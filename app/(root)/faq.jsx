@@ -9,7 +9,7 @@ const faq = () => {
         <ScrollView>
             <View className="mt-[30px]">
                 <View className="mb-[30px] flex-row items-center justify-center">
-                    <BoostBrand />
+                    <BoostBrand mt={0.1} />
                 </View>
                 <FaqFirstPart />
             </View>

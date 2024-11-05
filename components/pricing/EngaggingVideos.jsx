@@ -8,7 +8,7 @@ const EngaggingVideos = () => {
         <View className="flex-row justify-center">
             <View className="max-w-[350px] flex gap-[30px]">
                 <View className="max-w-[326px] flex items-center justify-center">
-                    <BoostBrand />
+                    <BoostBrand mt={0.1} />
                     <View className="flex-row flex-wrap items-center justify-center gap-y-[3px] mt-[30px]">
                         <ImageBackground
                             source={require("../../assets/images/questionbg.png")}

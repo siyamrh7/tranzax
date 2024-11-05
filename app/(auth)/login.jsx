@@ -6,6 +6,7 @@ import {
     TouchableOpacity,
     TextInput,
     Alert,
+    StyleSheet,
 } from "react-native"
 import React, { useState } from "react"
 import { Ionicons } from "@expo/vector-icons"
@@ -15,6 +16,7 @@ import { router } from "expo-router"
 import axios from "axios"
 import * as SecureStore from "expo-secure-store"
 import Toast from "react-native-toast-message"
+// import { authShadowStyle } from "../../constant/style"
 
 const Login = () => {
     const [isLogin, setIsLogin] = useState(true)
@@ -44,7 +46,6 @@ const Login = () => {
         // Alert.alert("Success", "Login successful!")
         router.replace("(root)/home")
     }
-
     const handleLogin = async () => {
         if (!validateForm()) {
             return Toast.show({
@@ -53,6 +54,7 @@ const Login = () => {
                 text2: "Both fields are required",
             })
         }
+
         try {
             const response = await axios.post(
                 `${process.env.EXPO_PUBLIC_BASE_URL}/api/auth/login`,
@@ -123,13 +125,16 @@ const Login = () => {
 
     return (
         <ScrollView className="px-4">
-            <View className="shadow-loginShadow rounded-[12px] bg-white pb-6 mt-[50px]">
+            <View
+                className="rounded-[12px] bg-[#fff] p-6 mt-[50px] border-[1px] border-transparent"
+                style={authShadowStyle.box}
+            >
                 <View className="pt-6 pl-6 pr-6">
-                    <Text className="text-capitalize font-poppins text-[#010101] font-semibold text-[24px] text-center uppercase">
+                    <Text className="text-capitalize font-poppins text-[#010101] font-bold text-[24px] text-center uppercase">
                         Log in
                     </Text>
                     <View>
-                        <Text className="text-[#010101] uppercase font-poppins text-[16px] font-medium mt-[50px]">
+                        <Text className="text-[#010101] uppercase font-poppins text-[16px] font-bold mt-[50px]">
                             Login (Email or phone)
                         </Text>
                         <View className="px-[14px] py-[10px] border-[1px] border-[#BFBFBF] rounded-[4px] mt-2">
@@ -150,7 +155,7 @@ const Login = () => {
                         </View>
                     </View>
                     <View>
-                        <Text className="text-[#010101] uppercase font-poppins text-[16px] font-medium mt-5">
+                        <Text className="text-[#010101] uppercase font-poppins text-[16px] font-bold mt-5">
                             Password
                         </Text>
                         <View className="px-[14px] py-[10px] border-[1px] border-[#BFBFBF] rounded-[4px] mt-2">
@@ -201,7 +206,7 @@ const Login = () => {
                                 <View className="w-3 h-3 bg-[#000]" />
                             )}
                         </TouchableOpacity>
-                        <Text className="text-[#010101] font-poppins">
+                        <Text className="text-[#010101] font-poppins font-bold">
                             KEEP ME LOGGED IN
                         </Text>
                     </View>
@@ -214,7 +219,7 @@ const Login = () => {
                     <TouchableOpacity
                         onPress={() => router.replace("/register")}
                     >
-                        <Text className="text-[#010101] font-semibold text-[14px]">
+                        <Text className="text-[#010101] text-[14px] font-bold">
                             SIGN UP
                         </Text>
                     </TouchableOpacity>
@@ -225,3 +230,16 @@ const Login = () => {
 }
 
 export default Login
+
+export const authShadowStyle = StyleSheet.create({
+    box: {
+        shadowColor: "rgba(0, 0, 0, 0.10)",
+        shadowOffset: {
+            width: 0,
+            height: 0,
+        },
+        shadowOpacity: 1,
+        shadowRadius: 30,
+        elevation: 50,
+    },
+})

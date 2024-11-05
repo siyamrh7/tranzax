@@ -1,5 +1,5 @@
 import axios from "axios"
-import { createContext, useEffect, useState,useLayoutEffect } from "react"
+import { createContext, useEffect, useState, useLayoutEffect } from "react"
 
 export const AppContext = createContext()
 
@@ -12,6 +12,7 @@ export function AppProvider({ children }) {
     const [packageLists, setPackageLists] = useState([])
     const [error, setError] = useState([])
     const [cityLists, setCityLists] = useState([])
+    const [countries, setCountries] = useState([])
     const [servicePackages, setServicePackages] = useState([])
     const getAllCategories = async () => {
         try {
@@ -28,7 +29,19 @@ export function AppProvider({ children }) {
             setError("Could not load all categories.")
         }
     }
-
+    const getCountriesLists = async () => {
+        try {
+            const res = await axios.get(`https://tranzaxx.com/api/countries`)
+            if (res.data.success) {
+                setCountries(res.data.result.data)
+            } else {
+                setError(`Error: Received status ${res.status}`)
+            }
+        } catch (err) {
+            console.error("Failed to fetch countries:", err)
+            setError("Could not load countries.")
+        }
+    }
     const getServicePackages = async () => {
         try {
             const res = await axios.get(
@@ -128,6 +141,7 @@ export function AppProvider({ children }) {
             await packagesLits()
             await getCityLists()
             await getServicePackages()
+            await getCountriesLists()
         }
         getAllData()
     }, [])
@@ -143,6 +157,7 @@ export function AppProvider({ children }) {
                 packageLists,
                 cityLists,
                 servicePackages,
+                countries,
             }}
         >
             {children}

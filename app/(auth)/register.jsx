@@ -12,6 +12,7 @@ import Btn from "../../components/shared/Btn"
 import { registerInputData } from "../../constant/data"
 import { router } from "expo-router"
 import axios from "axios"
+// import { authShadowStyle } from "../../constant/style"
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -155,15 +156,18 @@ const Register = () => {
 
     return (
         <ScrollView className="px-4">
-            <View className="shadow-loginShadow rounded-[12px] bg-white pb-6 mt-[50px]">
-                <View className="pt-6 pl-6 pr-6">
-                    <Text className="text-capitalize font-poppins text-[#010101] font-semibold text-[16px] text-center uppercase">
+            <View
+                className="rounded-[12px] bg-[#fff] border-[1px] border-transparent p-6 mt-[50px]"
+                style={authShadowStyle.box}
+            >
+                <View className="">
+                    <Text className="text-capitalize font-poppins text-[#010101] font-bold text-[16px] text-center uppercase">
                         CREATE YOUR ACCOUNT, IT'S 100% FREE
                     </Text>
                     <View className="flex gap-5 py-[] mt-[50px]">
                         {registerInputData.map((data, index) => (
                             <View key={index}>
-                                <Text className="uppercase text-[#010101] font-poppins text-[16px] font-medium">
+                                <Text className="uppercase text-[#010101] font-poppins text-[16px] font-bold">
                                     {data.name}
                                 </Text>
                                 <View className="px-[14px] py-[10px] border-[1px] border-[#BFBFBF] mt-[10px] rounded-[4px]">
@@ -293,3 +297,18 @@ const Register = () => {
 }
 
 export default Register
+
+const authShadowStyle = {
+    box: {
+        // iOS Shadow
+        shadowColor: "rgba(0, 0, 0, 0.1)", // Shadow color with rgba for transparency
+        shadowOffset: {
+            width: 0,
+            height: 10, // Mimic the vertical offset you want
+        },
+        shadowOpacity: 0.1, // Opacity level
+        shadowRadius: 30, // This mimics the blur effect
+        // Android Shadow
+        elevation: 5, // Adjust as needed for the desired shadow effect
+    },
+}

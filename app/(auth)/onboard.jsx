@@ -2,11 +2,12 @@ import { AntDesign } from "@expo/vector-icons"
 import { Link, router } from "expo-router"
 import { Image, ScrollView, TouchableOpacity } from "react-native"
 import { View, Text } from "react-native"
+import ArrowRight from "../../assets/images/arrowright.svg"
 
 const onboard = () => {
     return (
         <ScrollView className="flex-1">
-            <View className="flex-row justify-end mt-1 pr-5">
+            <View className="flex-row justify-end pr-5 mt-4">
                 <Link
                     href={"login"}
                     className="text-[#21212] text-[20px] font-medium font-uppercase"
@@ -18,11 +19,11 @@ const onboard = () => {
                 <Image
                     source={require("../../assets/images/onboard.png")}
                     className="w-full"
-                    resizeMode="cover"
+                    resizeMode="contain"
                 />
             </View>
             <View className="px-5">
-                <Text className="font-poppins text-[#000] text-center text-capitalize text-[28px] font-semibold">
+                <Text className="font-poppins text-[#000]  text-center text-capitalize text-[28px] font-bold">
                     DISCOVER, BUY & SELL WITH TRANZAXX
                 </Text>
                 <Text
@@ -36,17 +37,13 @@ const onboard = () => {
                 <View>
                     <View className="flex-row justify-end mt-10 mb-8">
                         <TouchableOpacity
-                            className="flex-row items-center bg-[#00ADEF] py-[3px] px-[30px] rounded-lg"
+                            className="flex-row items-center bg-[#00ADEF] py-[10px] px-[30px] rounded-lg"
                             onPress={() => router.replace("/login")}
                         >
                             <Text className="text-[20px] font-poppins text-white font-bold text-capitalize">
                                 Next
                             </Text>
-                            <AntDesign
-                                name="arrowright"
-                                size={24}
-                                color="white"
-                            />
+                            <ArrowRight width={24} height={24} />
                         </TouchableOpacity>
                     </View>
                 </View>

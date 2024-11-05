@@ -1,4 +1,11 @@
-import { View, Text, Image, ScrollView, TextInput } from "react-native"
+import {
+    View,
+    Text,
+    Image,
+    ScrollView,
+    TextInput,
+    StyleSheet,
+} from "react-native"
 import CustomHr from "../../components/shared/CustomHr"
 import { useContext, useState } from "react"
 import { AppContext } from "../../store/store"
@@ -16,7 +23,7 @@ const Advertise = () => {
 
     const [receiveNegation, setReceiveNegotiation] = useState(false)
     const [hidePhoneNumber, setHidePhoneNumber] = useState(false)
-
+    const [currentTab, setCurrentTab] = useState("Advertise")
     return (
         <ScrollView>
             <View className="mb-20">
@@ -27,17 +34,28 @@ const Advertise = () => {
                         className="px-[30px] py-10 rounded-[12px]"
                     >
                         <View className="flex-row items-center justify-between">
-                            <Text className="text-[20px] font-poppins font-semibold text-primary uppercase">
-                                Advertise
-                            </Text>
+                            <TouchableOpacity>
+                                <Text className="text-[18px] font-poppins font-semibold text-primary uppercase">
+                                    Advertise
+                                </Text>
+                            </TouchableOpacity>
                             <View className="w-[1px] h-5 bg-[#BFBFBF]"></View>
-                            <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
-                                Package
-                            </Text>
+                            <TouchableOpacity
+                                onPress={() => router.push("(add)/packages")}
+                            >
+                                <Text className="text-[18px] font-poppins font-semibold text-primaryBlk uppercase">
+                                    Packages
+                                </Text>
+                            </TouchableOpacity>
+
                             <View className="w-[1px] h-5 bg-[#BFBFBF]"></View>
-                            <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
-                                Payments
-                            </Text>
+                            <TouchableOpacity
+                                onPress={() => router.push("(add)/payment")}
+                            >
+                                <Text className="text-[18px] font-poppins font-semibold text-primaryBlk uppercase">
+                                    Payments
+                                </Text>
+                            </TouchableOpacity>
                         </View>
                         <CustomHr className={"bg-primary h-[2px] mt-[14px]"} />
                         <View className="mt-[30px] flex-row items-center gap-[10px] pb-2 border-b-[1px] border-primary">
@@ -54,7 +72,7 @@ const Advertise = () => {
                     </View>
                     <View className="p-6">
                         <View>
-                            <Text className="text-primaryBlk text-[16px] font-semibold font-poppins">
+                            <Text className="text-primaryBlk text-[16px] font-bold font-poppins">
                                 TITLE*
                             </Text>
                             <View className="mt-[10px] py-[10px] px-[10px] border-[1px] border-[#BFBFBF] rounded-[4px]">
@@ -64,11 +82,11 @@ const Advertise = () => {
                                 />
                             </View>
                         </View>
-                        <Text className="uppercase font-semibold mt-[10px] text-[13px] font-poppins">
+                        <Text className="uppercase font-bold mt-[10px] text-[13px] font-poppins">
                             A GREAT TITLE NEEDS AT LEAST 60 CHARACTERS.*
                         </Text>
                         <View className="mt-[26px]">
-                            <Text className="text-[16px] font-poppins text-primaryBlk font-semibold mt-[44px] ">
+                            <Text className="text-[16px] font-poppins text-primaryBlk font-bold ">
                                 DESCRIPTION*
                             </Text>
                             <TextInput
@@ -77,13 +95,13 @@ const Advertise = () => {
                                 placeholderTextColor={
                                     "TELL US ABOUT YOUR PROJECT..."
                                 }
-                                className="px-[14px] py-[10px] rounded-[4px] border-[1px] border-[#BFBFBF]"
+                                className="px-[14px] py-[10px] rounded-[4px] border-[1px] border-[#BFBFBF] mt-[10px]"
                                 placeholder="TELL US ABOUT YOUR PROJECT..."
                             />
                         </View>
                         <View className="">
-                            <Text className="text-[16px] font-poppins text-primaryBlk font-semibold mt-[44px] ">
-                                THUMBNAIL*
+                            <Text className="text-[16px] font-poppins text-primaryBlk font-bold mt-[44px] ">
+                                THUMBNAIL
                             </Text>
                             <View className="mt-[10px] py-[50px] flex items-center justify-center border-[1px] border-[#BFBFBF] rounded-[4px]">
                                 <Image
@@ -91,14 +109,14 @@ const Advertise = () => {
                                     className="w-[50px] h-[50px]"
                                 />
 
-                                <Text className="font-poppins text-[#737373] tracking-[.56px] mt-5 text-center">
+                                <Text className="font-poppins text-[14px] text-[#737373] tracking-[.56px] mt-5 text-center">
                                     ADD 1 APPEALING THUMBNAIL FOR MAXIMUM VISUAL
                                     IMPACT (OPTIONAL).
                                 </Text>
                             </View>
                         </View>
                         <View className="mt-[]">
-                            <Text className="text-[16px] font-poppins text-primaryBlk font-semibold mt-[44px] ">
+                            <Text className="text-[16px] font-poppins text-primaryBlk font-bold mt-[44px] ">
                                 VIDEO*
                             </Text>
                             <View className="mt-[10px] py-[50px] flex items-center justify-center border-[1px] border-[#BFBFBF] rounded-[4px]">
@@ -150,7 +168,7 @@ const Advertise = () => {
                                 <View className=" flex-row justify-between mt-[10px] items-center gap-[10px] px-[14px] py-[10px] border-[1px] border-[#BFBFBF] rounded-[4px]">
                                     <TextInput
                                         placeholder="SELECT A CITY"
-                                        placeholderTextColor={"#010101s"}
+                                        placeholderTextColor={"#010101"}
                                         className="text-primaryBlk font-poppins text-[12px] w-[80%]"
                                     />
                                     <Ionicons
@@ -166,8 +184,8 @@ const Advertise = () => {
                                 </Text>
                                 <View className=" flex-row justify-between mt-[10px] items-center gap-[10px] px-[14px] py-[10px] border-[1px] border-[#BFBFBF] rounded-[4px]">
                                     <TextInput
-                                        placeholder="RAGS"
-                                        placeholderTextColor={"#010101s"}
+                                        placeholder="TASGS"
+                                        placeholderTextColor={"#010101"}
                                         className="text-primaryBlk font-poppins text-[12px] w-[80%]"
                                     />
                                     <Ionicons size={18} color="#010101" />
@@ -291,12 +309,23 @@ const Advertise = () => {
 
 export default Advertise
 
-const styles = {
+// const styles = {
+//     shadowBox: {
+//         shadowColor: "rgba(0, 0, 0, 0.1)",
+//         shadowOffset: { width: 0, height: 0 },
+//         shadowOpacity: 1,
+//         shadowRadius: 20,
+//         elevation: 5,
+//     },
+// }
+
+const styles = StyleSheet.create({
     shadowBox: {
-        shadowColor: "rgba(0, 0, 0, 0.1)",
+        backgroundColor: "#fff",
+        shadowColor: "rgba(0, 0, 0, 0.10)",
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 1,
-        shadowRadius: 20,
+        shadowRadius: 30,
         elevation: 5,
     },
-}
+})

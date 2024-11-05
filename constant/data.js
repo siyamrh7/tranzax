@@ -244,18 +244,23 @@ export const contact = [
 export const follow = [
     {
         img: insta,
+        link: "https://www.instagram.com/tranzaxx/",
     },
     {
         img: fb,
+        link: "https://www.facebook.com/people/Tranzaxx/100083200732738",
     },
     {
         img: linkind,
+        link: "https://www.linkedin.com/company/tranzaxx/",
     },
     {
         img: x,
+        link: "https://x.com/tranzaxx",
     },
     {
         img: message,
+        link: "mailto:info@tranzaxx.com",
     },
 ]
 

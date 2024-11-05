@@ -6,13 +6,13 @@ import { AppContext } from "../../store/store"
 const PricingCard = () => {
     const { servicePackages } = useContext(AppContext)
     if (servicePackages?.length === undefined || servicePackages?.length <= 0) {
-        return null
+        return <View></View>
     }
     return (
         <View>
             {servicePackages?.map((category) => (
                 <View key={category.name} className="relative">
-                    {category.recommended && (
+                    {category.recommended !== "0" && (
                         <View className="absolute left-0 w-full flex-row justify-center items-center top-[28px] z-10">
                             <View className="w-full text-center flex-row items-center bg-white font-poppins max-w-[130px] border-[1px] border-[#BFBFBF]  rounded-[20px] px-[10px] py-[6px]">
                                 <Text className="text-primary text-[14px]">
@@ -26,10 +26,10 @@ const PricingCard = () => {
                             {category.name}
                         </Text>
                         <Text className="text-[44px] mt-3 text-center font-semibold font-poppins tracking-[-.5px]">
-                            {category.price}
+                            {category.price} $
                         </Text>
-                        <Text className="text-lightColor text-[12px] text-center mt-[10px]">
-                            {category.title}
+                        <Text className="text-center">
+                            {category.video_limit} seconds video
                         </Text>
                         <View className="flex items-center justify-center">
                             <TouchableOpacity className="px-4 py-2 bg-primary rounded-[30px] mt-4">

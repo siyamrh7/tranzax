@@ -91,7 +91,7 @@ const ContactForm = () => {
 
             {contactUsForm.map((data, index) => (
                 <View key={index}>
-                    <Text className="text-[16px] text-primaryBlk font-semibold font-poppins">
+                    <Text className="text-[16px] text-primaryBlk font-bold font-poppins">
                         {data.placeholder}
                     </Text>
                     <TextInput

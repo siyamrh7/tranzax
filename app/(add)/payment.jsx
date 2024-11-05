@@ -6,6 +6,7 @@ import { adsCardHolderInfo, adsCardInformation } from "../../constant/data"
 import { useState } from "react"
 import { TouchableOpacity } from "react-native"
 import { AntDesign } from "@expo/vector-icons"
+import { router } from "expo-router"
 
 export default function Payment() {
     const [cardholderInfo, setCardHolderDerInfo] = useState({
@@ -32,14 +33,23 @@ export default function Payment() {
                     style={styles.shadowBox}
                 >
                     <View className="flex-row items-center justify-between">
-                        <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
-                            ADVERTISE
-                        </Text>
+                        <TouchableOpacity
+                            onPress={() => router.push("(add)/advertise")}
+                        >
+                            <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
+                                ADVERTISE
+                            </Text>
+                        </TouchableOpacity>
 
                         <View className="w-[1px] h-5 bg-[#BFBFBF]"></View>
-                        <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
-                            PACKAGES
-                        </Text>
+                        <TouchableOpacity
+                            onPress={() => router.push("(add)/packages")}
+                        >
+                            <Text className="text-[20px] font-poppins font-semibold text-primaryBlk uppercase">
+                                PACKAGES
+                            </Text>
+                        </TouchableOpacity>
+
                         <View className="w-[1px] h-5 bg-[#BFBFBF]"></View>
 
                         <Text className="text-[20px] font-poppins font-semibold text-primary uppercase">

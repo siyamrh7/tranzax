@@ -10,14 +10,14 @@ export default function PersonalInformation() {
                     <Image
                         source={require("../../assets/images/advertise/personalinfoicon.png")}
                     />
-                    <Text className="text-primary text-[22px] translate-y-1 font-semibold font-poppins">
+                    <Text className="text-primary text-[22px] translate-y-1 font-semibold font-bold">
                         Personal Information
                     </Text>
                 </View>
 
-                <View className="mt-[10px] flex-row items-center justify-between">
+                <View className="mt-4 flex-row items-center justify-between">
                     <View className="w-[48%]">
-                        <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins capitalize">
+                        <Text className="text-[#061B3B] text-[12px] font-bold font-poppins capitalize">
                             Full Name *
                         </Text>
                         <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -28,7 +28,7 @@ export default function PersonalInformation() {
                         </View>
                     </View>
                     <View className="w-[48%]">
-                        <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins capitalize">
+                        <Text className="text-[#061B3B] text-[12px] font-bold font-poppins capitalize">
                             Email Address *
                         </Text>
                         <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -41,7 +41,7 @@ export default function PersonalInformation() {
                 </View>
 
                 <View className="mt-[10px]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins">
                         Full Address *
                     </Text>
                     <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -52,8 +52,8 @@ export default function PersonalInformation() {
                     </View>
                 </View>
 
-                <View className="mt-[10px]">
-                    <Text className="text-[#061B3B] text-[12px] font-semibold font-poppins">
+                {/* <View className="mt-[10px]">
+                    <Text className="text-[#061B3B] text-[12px] font-bold font-poppins">
                         Discount *
                     </Text>
                     <View className="px-[10px] py-[17px] mt-[6px] border-[1px] border-[#DEE2E6] rounded-[5px] bg-white">
@@ -63,7 +63,7 @@ export default function PersonalInformation() {
                             keyboardType="numeric"
                         />
                     </View>
-                </View>
+                </View> */}
             </View>
 
             {/* Card Holder Information Section */}

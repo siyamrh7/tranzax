@@ -12,6 +12,8 @@ import { useState } from "react"
 import Toast from "react-native-toast-message"
 import axios from "axios"
 import { toastConfig } from "../constant/toastConfig"
+import { authShadowStyle } from "../constant/style"
+import { router } from "expo-router"
 
 const ForgetPassword = ({ setIsLogin }) => {
     const goLogin = () => {
@@ -65,17 +67,20 @@ const ForgetPassword = ({ setIsLogin }) => {
     }
     return (
         <ScrollView className="px-4">
-            <View className="shadow-loginShadow rounded-[12px]  bg-white pb-6 mt-[50px]">
+            <View
+                className="rounded-[12px] bg-[#fff] p-6 mt-[50px]"
+                style={authShadowStyle.box}
+            >
                 <View className="pt-6 pl-6 pr-6">
                     <Toast config={toastConfig} />
-                    <Text className="text-capitalize font-poppins  text-[#010101] font-semibold text-[24px] text-center uppercase">
+                    <Text className="text-capitalize font-poppins  text-[#010101] font-bold text-[24px] text-center uppercase">
                         Forgot Password
                     </Text>
                     <View className="flex-row items-center mt-[50px]">
-                        <Text className=" text-[#010101] uppercase font-poppins text-[16px] font-medium">
+                        <Text className=" text-[#010101] uppercase font-poppins text-[16px] font-bold">
                             Login
                         </Text>
-                        <Text className="uppercase font-poppins text-[14px]">
+                        <Text className="uppercase font-poppins text-[14px] font-bold">
                             (Email or phone)
                         </Text>
                     </View>
@@ -102,7 +107,10 @@ const ForgetPassword = ({ setIsLogin }) => {
                 <View className="mt-5 text-[#999] font-poppins flex-row items-center justify-center">
                     <Text>DO NOT HAVE AN ACCOUNT?</Text>
                     <TouchableOpacity className="">
-                        <Text className="text-[#010101] font-semibold text-[14px]">
+                        <Text
+                            className="text-[#010101] text-[14px] font-bold"
+                            onPress={() => router.push("(auth)/register")}
+                        >
                             SIGN UP
                         </Text>
                     </TouchableOpacity>

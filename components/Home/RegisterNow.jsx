@@ -1,3 +1,4 @@
+import { router } from "expo-router"
 import { View, Text, TouchableOpacity } from "react-native"
 
 const RegisterNow = () => {
@@ -12,7 +13,10 @@ const RegisterNow = () => {
                     our platform completely FREE!
                 </Text>
                 <View className="flex-col justify-center mt-[14px]">
-                    <TouchableOpacity className="px-4 py-2 bg-white rounded-[20px]">
+                    <TouchableOpacity
+                        className="px-4 py-2 bg-white rounded-[20px]"
+                        onPress={() => router.push("(auth)/register")}
+                    >
                         <Text className="font-poppins text-[14px]">
                             Join Now
                         </Text>
