@@ -2,14 +2,18 @@ import { AntDesign } from "@expo/vector-icons"
 import { router } from "expo-router"
 import { TouchableOpacity } from "react-native"
 import { View, Text, Image } from "react-native"
-import Logo from "../../assets/images/tranzaxx.svg"
 
 const welcome = () => {
     return (
         <View className="px-4 flex-1 justify-center pb-20">
             <View className="flex gap-12 mt-32">
                 <View className="flex-row justify-center">
-                    <Logo width={320} height={80} />
+                    {/* <Logo width={320} height={80} /> */}
+                    <Image
+                        source={require("../../assets/images/LogoFinal.png")}
+                        className="w-[320px] h-[80px]"
+                        resizeMethod="contain"
+                    />
                 </View>
 
                 <View>

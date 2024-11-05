@@ -14,6 +14,8 @@ export function AppProvider({ children }) {
     const [cityLists, setCityLists] = useState([])
     const [countries, setCountries] = useState([])
     const [servicePackages, setServicePackages] = useState([])
+    const [user, setUser] = useState([])
+
     const getAllCategories = async () => {
         try {
             const res = await axios.get(
@@ -158,6 +160,8 @@ export function AppProvider({ children }) {
                 cityLists,
                 servicePackages,
                 countries,
+                user,
+                setUser,
             }}
         >
             {children}

@@ -6,14 +6,16 @@ import RotateText from "../shared/RotateText"
 export default function AdsHeroSection() {
     return (
         <View className="px-10 flex gap-[30px] ">
-            <BoostBrand text="Boost Your Brand with Engaging Videos!" />
+            <BoostBrand
+                text="Boost Your Brand with Engaging Videos!"
+                // mt={".1px"}
+            />
             <View>
                 <View className="flex-row items-center">
                     <Text className="font-Poppins text-primaryBlk uppercase font-BebasNeue  text-[34px]">
                         Promote Your
                     </Text>
                     <Text>
-                        {" "}
                         <RotateText text={"Ads"} />{" "}
                     </Text>
                     <Text className="font-BebasNeue text-[34px] text-primaryBlk">

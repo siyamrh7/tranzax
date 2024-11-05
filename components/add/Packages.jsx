@@ -8,9 +8,12 @@ import { AntDesign } from "@expo/vector-icons"
 
 const Packages = ({ selectCategory, setSelectCategory }) => {
     const { servicePackages } = useContext(AppContext)
+
+    console.log(setSelectCategory)
+    console.log(selectCategory)
     return (
         <View className="px-4">
-            <CustomHr className={"bg-primary h-[2px] mt-[14px]"} />
+            {/* <CustomHr className={"bg-primary h-[2px] mt-[14px]"} />
             <View className="mt-[30px] flex-row items-center gap-[10px] pb-2 border-b-[1px] border-primary">
                 <Image
                     source={require("../../assets/images/token.png")}
@@ -19,7 +22,7 @@ const Packages = ({ selectCategory, setSelectCategory }) => {
                 <Text className="uppercase text-[18px] font-poppins font-semibold text-primary">
                     PACKAGES
                 </Text>
-            </View>
+            </View> */}
             <View className="mt-10 flex gap-10">
                 {servicePackages.length > 0 &&
                     servicePackages?.map((priceCat) => (
@@ -27,7 +30,7 @@ const Packages = ({ selectCategory, setSelectCategory }) => {
                             key={priceCat.id}
                             className="pb-[17px] flex-row items-center justify-between border-b-[1px] border-b-[#D9D9D9]"
                         >
-                            <View className=" ">
+                            <View className="mt-[]">
                                 <View className="mt-3 gap-x-2 flex-row items-center">
                                     <TouchableOpacity
                                         onPress={() =>

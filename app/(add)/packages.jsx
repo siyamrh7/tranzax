@@ -11,7 +11,7 @@ import PackagesCom from "../../components/add/Packages"
 
 export default function Packages() {
     const { servicePackages } = useContext(AppContext)
-    const [selectCategory, setSelectCategory] = useState(null)
+    const [selectCategory, setSelectCategory] = useState("")
 
     return (
         <ScrollView className="px-4">

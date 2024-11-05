@@ -8,7 +8,7 @@ import {
     Alert,
     StyleSheet,
 } from "react-native"
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { Ionicons } from "@expo/vector-icons"
 import Btn from "../../components/shared/Btn"
 import ForgetPassword from "../../components/ForgetPassword"
@@ -16,9 +16,11 @@ import { router } from "expo-router"
 import axios from "axios"
 import * as SecureStore from "expo-secure-store"
 import Toast from "react-native-toast-message"
+import { AppContext } from "../../store/store"
 // import { authShadowStyle } from "../../constant/style"
 
 const Login = () => {
+    const { user, setUser } = useContext(AppContext)
     const [isLogin, setIsLogin] = useState(true)
     const [formData, setFormData] = useState({
         emailOrPhone: "",
@@ -71,6 +73,7 @@ const Login = () => {
                 })
             }
             saveToken(response.data.extra.authToken)
+            setUser(response.data)
             return Toast.show({
                 type: "success",
                 text1: "Login Successful",
@@ -220,7 +223,8 @@ const Login = () => {
                         onPress={() => router.replace("/register")}
                     >
                         <Text className="text-[#010101] text-[14px] font-bold">
-                        {" "}SIGN UP
+                            {" "}
+                            SIGN UP
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -233,19 +237,18 @@ export default Login
 
 export const authShadowStyle = StyleSheet.create({
     box: {
-    
-        backgroundColor: '#fff',
-    
+        backgroundColor: "#fff",
+
         // Shadow for iOS
-        shadowColor: '#000',
+        shadowColor: "#000",
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.1,
         shadowRadius: 30,
-    
+
         // Shadow for Android
         elevation: 10,
-        marginLeft:10,
-        marginRight:10,
-        marginBottom:20
+        marginLeft: 10,
+        marginRight: 10,
+        marginBottom: 20,
     },
 })
